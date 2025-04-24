@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_habits">
+
+    <fragment
+        android:id="@+id/navigation_habits"
+        android:name="com.example.habittracker.ui.habits.HabitsFragment"
+        android:label="@string/title_habits"
+        tools:layout="@layout/fragment_habits">
+        <action
+            android:id="@+id/action_habits_to_habit_detail"
+            app:destination="@id/navigation_habit_detail" />
+        <action
+            android:id="@+id/action_habits_to_add_habit"
+            app:destination="@id/navigation_add_habit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_statistics"
+        android:name="com.example.habittracker.ui.statistics.StatisticsFragment"
+        android:label="@string/title_statistics"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.habittracker.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_habit_detail"
+        android:name="com.example.habittracker.ui.habits.HabitDetailFragment"
+        android:label="@string/title_habit_detail"
+        tools:layout="@layout/fragment_habit_detail">
+        <argument
+            android:name="habitId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_habit"
+        android:name="com.example.habittracker.ui.habits.AddEditHabitFragment"
+        android:label="@string/title_add_habit"
+        tools:layout="@layout/fragment_add_edit_habit">
+        <argument
+            android:name="habitId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>
